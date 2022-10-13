@@ -13,10 +13,10 @@ const getContact = async(req, res)=>{
     try {
        const {id} = req.params
        const contact = await Contact.findById(id)
+       if(!contact) throw Error('No such contact data')
        res.status(200).json({data: contact})
-       console.log(req.query)
     } catch (error) {
-        res.status(400).json({error: error.message})
+      res.status(400).json({error: error.message})
     }
 }
 
@@ -32,7 +32,7 @@ const addContact = async(req, res)=>{
 
 const deleteContact = async(req, res)=>{
    try {
-      const {id} = req.body
+      const {id} = req.params
       const contact = await Contact.findByIdAndDelete(id)
       res.status(200).json({message: "contact deleted successfully"})
    } catch (error) {

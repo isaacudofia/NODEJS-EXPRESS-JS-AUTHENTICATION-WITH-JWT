@@ -9,9 +9,11 @@ const getAllContacts = async(req, res)=>{
    }
 }
 
-const getContact = (req, res)=>{
+const getContact = async(req, res)=>{
     try {
-       res.status(200).json({msg: 'GET CONTACT WITH THE ID '})
+       const {id} = req.params
+       const contact = await Contact.findById(id)
+       res.status(200).json({data: contact})
        console.log(req.query)
     } catch (error) {
         res.status(400).json({error: error.message})
@@ -22,11 +24,21 @@ const addContact = async(req, res)=>{
    try {
     const {name,telephone_no} = req.body
     const contact = await Contact.create({name,telephone_no})
-    res.status(201).json({msg: 'POST A CONTACT'})
+    res.status(201).json({data: 'POST A CONTACT'})
    } catch (error) {
-    res.json({error: error.message})
+    res.status(400).json({error: error.message})
+   }
+}
+
+const deleteContact = async(req, res)=>{
+   try {
+      const {id} = req.body
+      const contact = await Contact.findByIdAndDelete(id)
+      res.status(200).json({message: "contact deleted successfully"})
+   } catch (error) {
+      res.status(400).json({error: error.message})
    }
 }
 
 
-module.exports = { getAllContacts, addContact, getContact }
+module.exports = { getAllContacts, addContact, getContact, deleteContact }

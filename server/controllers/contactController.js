@@ -24,7 +24,7 @@ const addContact = async(req, res)=>{
    try {
     const {name,telephone_no} = req.body
     const contact = await Contact.create({name,telephone_no})
-    res.status(201).json({data: 'POST A CONTACT'})
+    res.status(201).json({data: 'Added contact successfully'})
    } catch (error) {
     res.status(400).json({error: error.message})
    }

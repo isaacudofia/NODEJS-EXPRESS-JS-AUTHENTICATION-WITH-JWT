@@ -1,5 +1,10 @@
 const bcrypt = require('bcrypt')
 const User = require('../model/userModel')
+const jwt =require('jsonwebtoken')
+
+const generateToken =(_id)=>{
+    return jwt.sign( {_id} ,process.env.SECRET_TOKEN, {expiresIn: '1d'})
+}
 
 const signupUser = async(req, res)=>{
     const {email ,password} = req.body
@@ -9,7 +14,8 @@ const signupUser = async(req, res)=>{
        const userExist = await User.findOne({email})
        if(userExist) throw Error("Email already in use")
        const userCreated = await User.create({email,password: hashedPassword})
-       res.status(201).json({data: "User created in database" })
+       const token = generateToken(userCreated._id)
+       res.status(201).json({email: userCreated.email ,token })
     } catch (error) {
         res.status(400).json({error: error.message})
     }

@@ -5,11 +5,10 @@ const app = express()
 const mongoose = require('mongoose')
 const contactRoutes = require('./routes/contactRoutes')
 const userRoutes = require('./routes/userRoutes')
-const authMiddleware = require('./middleware/auth')
+
 
 //EXPRESS MIDDLEWARE FOR JSON OBJECTS
 app.use(express.json())
-app.use(authMiddleware)
 app.use('/api/contact', contactRoutes)
 app.use('/api/user', userRoutes)
 

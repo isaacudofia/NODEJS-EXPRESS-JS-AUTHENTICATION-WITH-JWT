@@ -2,8 +2,9 @@ const Contact = require('../model/contactModel')
 
 const getAllContacts = async(req, res)=>{
    try {
-    const contacts = await Contact.find({}).sort({createdAt : -1})
-    res.status(200).json({msg: contacts})
+    const uniqueID = req.user_ID._id
+    const contacts = await Contact.find({userID: uniqueID}).sort({createdAt : -1})
+    res.status(200).json({data: contacts})
    } catch (error) {
     res.status(400).json({error: error.message})
    }
@@ -23,7 +24,9 @@ const getContact = async(req, res)=>{
 const addContact = async(req, res)=>{
    try {
     const {name,telephone_no} = req.body
-    const contact = await Contact.create({name,telephone_no})
+    const uniqueID = req.user_ID._id
+    console.log(uniqueID)
+    const contact = await Contact.create({name,telephone_no, userID: uniqueID })
     res.status(201).json({data: 'Added contact successfully'})
    } catch (error) {
     res.status(400).json({error: error.message})

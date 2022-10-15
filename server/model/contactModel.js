@@ -7,8 +7,12 @@ const ContactSchema = mongoose.Schema({
     },
     telephone_no: {
         type: Number,
-        required: true,
+        required: true
     },
+    userID: {
+       type: String,
+       required: true
+    }
 },{timestamps: true})
 
 module.exports = mongoose.model('Contact', ContactSchema)

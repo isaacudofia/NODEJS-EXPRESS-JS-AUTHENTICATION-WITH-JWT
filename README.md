@@ -24,4 +24,7 @@ jwt
 
 4. JWT is also suitable for implementing authorization in large-scale web applications
 
-![jwt =2](https://user-images.githubusercontent.com/100437247/200182687-f06e43c8-cebf-4777-8859-392f0ecb71ce.jpg)
+#Here is the diagram of how JWT works:
+
+![authentication-and-authorization-in-expressjs-using-jwt-2](https://user-images.githubusercontent.com/100437247/200182992-74bb262b-52cf-4e98-be3f-acff549ca960.png)
+

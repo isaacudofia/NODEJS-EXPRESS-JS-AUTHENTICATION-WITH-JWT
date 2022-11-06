@@ -10,7 +10,6 @@ const getAllContacts = async(req, res)=>{
    }
 }
 
-
 const getContact = async(req, res)=>{
     try {
        const {id} = req.params
@@ -21,7 +20,6 @@ const getContact = async(req, res)=>{
       res.status(400).json({error: error.message})
     }
 }
-
 
 const addContact = async(req, res)=>{
    try {

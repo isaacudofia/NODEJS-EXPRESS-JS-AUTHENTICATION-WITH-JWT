@@ -15,6 +15,7 @@ There are several reasons why applications use JSON Web Tokens for authenticatio
 1. JWT is an excellent choice to be passed in HTML and HTTP environments due to its smaller footprint when compared to other types of tokens
 json-web-token.
 
+
 2. JSON Web Tokens can be signed using a shared secret and also by using public/private key pairs
 json
 

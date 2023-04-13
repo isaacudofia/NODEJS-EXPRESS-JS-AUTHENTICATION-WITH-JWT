@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config() //USED TO IMPORT HIDDEN TOKEN FROM .ENV TO THE SERVER.JS 
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')

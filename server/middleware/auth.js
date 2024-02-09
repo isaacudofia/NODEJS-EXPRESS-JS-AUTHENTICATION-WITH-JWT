@@ -5,7 +5,7 @@ const auth =async(req, res, next)=>{
   const {authorization} = req.headers
   if(!authorization) return res.status(401).json({error: "Authorization token required"})
 
-  //SPILT ON TOKEN FROM STRING OF CHARACTER
+  //SPILT ON TOKEN FROM STRING OF CHARACTER 
 
   const token = authorization.split(' ')[1]
   try {

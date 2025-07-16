@@ -11,7 +11,6 @@ const getAllContacts = async(req, res)=>{
 }
 
 
-
 const getContact = async(req, res)=>{
     try {
        const {id} = req.params

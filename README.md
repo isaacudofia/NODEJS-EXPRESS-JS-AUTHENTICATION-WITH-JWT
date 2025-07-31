@@ -12,6 +12,7 @@ JWTs are mainly used for authentication. After a user signs in to an application
 There are several reasons why applications use JSON Web Tokens for authentication:
 
 
+
 1. JWT is an excellent choice to be passed in HTML and HTTP environments due to its smaller footprint when compared to other types of tokens
 json-web-token.
 
